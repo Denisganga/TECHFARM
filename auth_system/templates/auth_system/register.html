@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title> 
+    {%load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>  
+<body>   
+<div class="form"> 
+    <h3>REGISTER</h3>
+    <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="90">
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <form action="" method=POST>
+        {% csrf_token %}
+        <label for ="fname">First Name</label>
+        <input type="text" placeholder="First Name in uppercase" name='username'required> <br>
+
+        <label for="fname"> Last Name</label>
+        <input type="text" placeholder="Last Name in uppercase" name='last_name'required> <br>
+
+        <label for="fname">Email</label>
+        <input type="email"placeholder="Valid Email" name='email'required> <br>
+
+        <label for="fname">Password</label>
+        <input type="Password" placeholder="Create a Strong Password" name='pwd'required> <br>
+
+        <button type="submit">Submit</button> <br>
+
+        <p>Already have an account <a href="{%url 'login-page'%}">login </a></p>
+
+    </form>
+</div>  
+</body>  
+</html> 

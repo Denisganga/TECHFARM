@@ -1,0 +1,28 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>
+    {%load static%}  
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+</head>  
+<body>  
+ <div class=container>
+  <div class="thehead">
+  <h3>LOGIN PAGE</h3> 
+  <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="90">
+  </div>
+  <form action="" method=POST>
+    {% csrf_token %}
+    <label for="fname">First Name</label>   
+    <input type="text" placeholder="Registered Name" name='fname' required> <br>
+
+    <label for ="fname">Password</label>
+    <input type="password" placeholder="input the correct password" name='pwd' required>  <br>
+
+    
+    <input type="submit" value="Login">
+  </form>
+ </div>
+</body>  
+</html> 
