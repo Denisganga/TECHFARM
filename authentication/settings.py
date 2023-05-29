@@ -140,6 +140,6 @@ EMAIL_HOST ='smtp.gmail.com'
 EMAIL_PORT ='587'
 EMAIL_USE_TLS =True
 EMAIL_HOST_USER ='agritech1623@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'bsgmhvqxrikbfuip'
 DEFAULT_FROM_EMAIL = 'agritech1623@gmail.com'
 #EMAIL_MESSAGE_ID_FQDN = 'example1623.com'

@@ -42,3 +42,11 @@ def  Login(request):
 
 
     return render(request,'auth_system/login.html', {})
+
+def password_reset_confirm(request, uidb64, token):
+    # Your view logic here
+    context = {
+        'uidb64': uidb64,
+        'token': token,
+    }
+    return render(request, 'auth_system/password_reset_form.html', context)
