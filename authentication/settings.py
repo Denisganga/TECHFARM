@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'auth_system',
+    'home_page',
 ]
 
 MIDDLEWARE = [
@@ -140,6 +141,10 @@ EMAIL_HOST ='smtp.gmail.com'
 EMAIL_PORT ='587'
 EMAIL_USE_TLS =True
 EMAIL_HOST_USER ='agritech1623@gmail.com'
-EMAIL_HOST_PASSWORD = 'bsgmhvqxrikbfuip'
+EMAIL_HOST_PASSWORD = 'jtxgqdcsdjftiajv'
 DEFAULT_FROM_EMAIL = 'agritech1623@gmail.com'
 #EMAIL_MESSAGE_ID_FQDN = 'example1623.com'
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'MainPage'

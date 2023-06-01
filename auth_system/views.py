@@ -3,9 +3,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
 
+from django.shortcuts import render
+
+from django.urls import path
+from . import views
+
 # Create your views here.
 def HomePage(request):
-    return render(request,'auth_system/index.html', {})
+    return render(request,'home_page/home.html', {})
 
 def Register(request):
     if request.method =='POST':
@@ -23,7 +28,7 @@ def Register(request):
         new_user.last_name=last_name
 
         new_user.save()
-        return redirect('login-page')
+        return redirect('auth_system:login-page')
 
 
     return render(request,'auth_system/register.html', {})
@@ -35,7 +40,7 @@ def  Login(request):
         user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            return redirect('home-page')
+            return redirect('auth_system:home-page')   #the first home_page is for the app replace with auth_system second home_page
         else:
             return HttpResponse("error. the user does not exist")
 
@@ -43,10 +48,11 @@ def  Login(request):
 
     return render(request,'auth_system/login.html', {})
 
-def password_reset_confirm(request, uidb64, token):
-    # Your view logic here
-    context = {
-        'uidb64': uidb64,
-        'token': token,
-    }
-    return render(request, 'auth_system/password_reset_form.html', context)
+from django.contrib.auth import views as auth_views
+
+def password_reset_confirm_view(request, uidb64, token):
+    return auth_views.PasswordResetConfirmView.as_view(
+        template_name='auth_system/password_reset_confirm.html',
+        success_url='/password_reset/complete/'
+    )(request, uidb64=uidb64, token=token)
+  
