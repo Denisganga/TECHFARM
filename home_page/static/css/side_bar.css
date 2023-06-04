@@ -1,5 +1,8 @@
 
 /* CSS for the header block */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
 header {
   background-color: #C9C9C9;
   padding: 1px;
@@ -18,7 +21,10 @@ body{
 .sidebar {
   background-color: #fff8dc;
   width: 250px;
-  padding: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+
+ 
 }
 
 .sidebar-menu {
@@ -29,6 +35,8 @@ body{
 
 .sidebar-menu li {
   margin-bottom: 10px;
+  border-bottom: 1px solid greenyellow;
+  
 }
 
 .sidebar-menu li a {
@@ -43,8 +51,9 @@ body{
 
 .sidebar-menu li a:hover {
   background-color: #ddd;
+  padding-left: 50px;
+  transition: 2s;
 }
-
 
 .content {
   padding: 20px;
@@ -66,6 +75,7 @@ footer {
 
 footer p {
   font-size: 12px;
+  
 }
 
 @keyframes sliding-background {
@@ -80,3 +90,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.sidebar-menu li i{
+  margin-right: 10px;
+}
+.sidebar-menu li span{
+  margin-right: 10px;
+}
+/*sidebar disappearing*/

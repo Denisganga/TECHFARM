@@ -1,0 +1,31 @@
+<!-- show.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crops List</title>
+  <!-- Add any CSS or other header elements you need -->
+</head>
+<body>
+  <h1>Crops List</h1>
+  {% if crops %}
+    {% for crop in crops %}
+      <h3>Crop ID: {{ crop.id }}</h3>
+      <p>Name: {{ crop.name }}</p>
+      <p>Variety: {{ crop.variety }}</p>
+      <p>Planting Date: {{ crop.planting_date }}</p>
+      <p>Description: {{ crop.description }}</p>
+      <p>Quantity: {{ crop.quantity }}</p>
+      <p>Harvested: {{ crop.is_harvested }}</p>
+      
+      <a href="{% url 'home_page:edit-crops' crop.id %}">Edit</a>
+      <a href="{% url 'home_page:update-crops' crop.id %}">Update</a>
+      <a href="{% url 'home_page:delete-crops' crop.id %}">Delete</a>
+      
+      <hr>
+    {% endfor %}
+  {% else %}
+    <p>No crops found.</p>
+  {% endif %}
+</body>
+</html>

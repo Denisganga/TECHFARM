@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import MainPage,FarmOverview,Machinery,Livestock,Harvest,Expenses,Reports,Settings,Help
-
+from .views import MainPage,FarmOverview,Machinery,Livestock,Harvestshow,Expenses,Reports,Settings,Help,create_crops,show_crops,edit,update,destroy
+from home_page import views 
 
 app_name='home_page'
 
@@ -14,7 +14,7 @@ urlpatterns = [
 
     path('livestock/',Livestock, name="livestock"),
 
-    path('harvest/',Harvest, name="harvest"),
+    path('harvest/',Harvestshow, name="harvest"),
 
     path('expenses/',Expenses,name="expenses"),
 
@@ -24,4 +24,14 @@ urlpatterns = [
 
     path('help/',Help, name="help"),
 
+
+    path('create/', create_crops, name='create-crops'),
+
+    path('harvestshow/',show_crops, name='show-crops'),
+
+    path('edit/<int:id>/', edit, name='edit-crops'),
+    path('update/<int:id>/', update, name='update-crops'),
+    path('delete/<int:id>/',destroy, name='delete-crops'),
+
+   
 ]

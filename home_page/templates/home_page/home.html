@@ -10,24 +10,29 @@
   
   <link rel="stylesheet" href="{% static 'css/side_bar.css' %}">
 
+  
   <script src="https://kit.fontawesome.com/a44d4b564a.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
   <header>
     
-    <h1>TECH FARM</h1>
+    <h1>WELCOME BACK TO TECH FARM</h1>
     <!-- Add any additional header elements or navigation here -->
   </header>
+
+
+    <i class="fas fa-bars" id="btn"></i>
+    
   
   <div class="sidebar">
     <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="90">
     <ul class="sidebar-menu">
       <li><a href="{% url 'home_page:farm-overview' %}"><span class="fa-solid fa-user"></span>     Farm Overview</a></li>
-      <li><a href="{% url 'home_page:harvest' %}"><i class="fa-solid fa-seedling"></i> Crops</a></li>
+      <li><a href="{% url 'home_page:show-crops' %}"><i class="fa-solid fa-seedling"></i> Crops</a></li>
       <li><a href="{% url 'home_page:livestock' %}"><i class="fa-solid fa-cow"></i> Livestock</a></li>
       <li><a href="{% url 'home_page:machinery' %}"><i class="fa-solid fa-tractor"></i> Machinery</a></li>
-      <li><a href="{% url 'home_page:harvest' %}"><i class="fa-solid fa-lemon"></i> Harvest</a></li>
+      <li><a href="{% url 'home_page:show-crops' %}"><i class="fa-solid fa-lemon"></i> Harvest</a></li>
       <li><a href="{% url 'home_page:expenses' %}"><i class="fa-solid fa-coins"></i> Expenses</a></li>
       <li><a href="{% url 'home_page:reports' %}"><i class="fa-solid fa-book-open-reader"></i> Reports</a></li>
       <li><a href="{% url 'home_page:settings' %}"><span class="fa-solid fa-gears"></span> Settings</a></li>

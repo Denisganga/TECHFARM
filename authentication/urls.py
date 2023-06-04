@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('auth_system.urls')),
     path('', include('home_page.urls')),
 
-
+    
 ]
 
