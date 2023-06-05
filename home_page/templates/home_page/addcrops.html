@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Add Crops</title>
+</head>
+<body>
+    <h1>Add Crops</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label >Name:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label >Variety:</label>
+            {{ form.variety }}
+        </div>
+        <div>
+            <label>Planting Date:</label>
+            <input type="date">
+        </div>
+        <div>
+            <label >Description:</label>
+            {{ form.description }}
+        </div>
+        <div>
+            <label >Quantity:</label>
+            {{ form.quantity }}
+        </div>
+        <div>
+            <label >Is Harvested:</label>
+            {{ form.is_harvested }}
+        </div>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

@@ -18,7 +18,7 @@
       <p>Quantity: {{ crop.quantity }}</p>
       <p>Harvested: {{ crop.is_harvested }}</p>
       
-      <a href="{% url 'home_page:edit-crops' crop.id %}">Edit</a>
+      <a href="{% url 'home_page:add-crops'%}">add</a>
       <a href="{% url 'home_page:update-crops' crop.id %}">Update</a>
       <a href="{% url 'home_page:delete-crops' crop.id %}">Delete</a>
       

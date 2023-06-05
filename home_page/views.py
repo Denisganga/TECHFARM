@@ -43,19 +43,19 @@ from django.shortcuts import render,redirect
 from .cropsforms import CropsForm
 from .models import Crops
 
-def create_crops(request):
+def add_crops(request):
     if request.method=='POST':
         form=CropsForm(request.POST)
         if form.is_valid():
             try:
                 form.save()
-                return redirect('/show')
+                return redirect('home_page:show-crops')
             except:
                 pass
     else:
-        form=CropsForm
+        form=CropsForm()
             
-    return render(request,'home_page/harvest.html',{'form':form})
+    return render(request,'home_page/addcrops.html',{'form':form})
 
 def show_crops(request):
     crops=Crops.objects.all()
@@ -72,7 +72,7 @@ def update(request,id):
 
     if form.is_valid():
         form.save()
-        return redirect("/show")
+        return redirect("home_page:show-crops")
     return render(request,"home_page/update.html",{'crops':crops})
 
 def destroy(request,id):
