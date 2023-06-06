@@ -44,27 +44,24 @@ from .cropsforms import CropsForm
 from .models import Crops
 
 def add_crops(request):
-    if request.method=='POST':
-        form=CropsForm(request.POST)
+    if request.method == 'POST':
+        form = CropsForm(request.POST)
         if form.is_valid():
-            try:
-                form.save()
-                return redirect('home_page:show-crops')
-            except:
-                pass
+            form.save()
+            return redirect('home_page:show-crops')
     else:
-        form=CropsForm()
-            
-    return render(request,'home_page/addcrops.html',{'form':form})
+        form = CropsForm()
+    
+    return render(request, 'home_page/addcrops.html', {'form': form})
 
 def show_crops(request):
     crops=Crops.objects.all()
     
     return render(request,"home_page/harvestshow.html",{'crops':crops})
     
-def edit(request,id):
-    crops=Crops.objects.get(id=id)
-    return render(request,"home_page/edit.html",{'crops':crops})
+#def edit(request,id):
+   # crops=Crops.objects.get(id=id)
+    #return render(request,"home_page/edit.html",{'crops':crops})
 
 def update(request,id):
     crops=Crops.objects.get(id=id)
@@ -75,10 +72,11 @@ def update(request,id):
         return redirect("home_page:show-crops")
     return render(request,"home_page/update.html",{'crops':crops})
 
-def destroy(request,id):
-    crops=Crops.objects.get(id=id)
-    crops.delete()
-    return redirect("/show")
+def delete_crop(request, id):
+    crop = Crops.objects.get(id=id)
 
+    if request.method == 'POST':
+        crop.delete()
+        return redirect('home_page:show-crops')
 
-
+    return render(request, 'home_page/delete_crop.html', {'crop': crop})

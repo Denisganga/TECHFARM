@@ -1,0 +1,10 @@
+.form-control {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.btn-primary {
+    background-color: #0088cc;
+    color: white;
+}

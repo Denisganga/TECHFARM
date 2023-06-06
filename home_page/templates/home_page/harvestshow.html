@@ -1,31 +1,44 @@
-<!-- show.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Crops List</title>
-  <!-- Add any CSS or other header elements you need -->
+  {%load static%}  
+  <link href="{% static 'css/harvestshow.css' %}" rel="stylesheet">
 </head>
 <body>
   <h1>Crops List</h1>
   {% if crops %}
-    {% for crop in crops %}
-      <h3>Crop ID: {{ crop.id }}</h3>
-      <p>Name: {{ crop.name }}</p>
-      <p>Variety: {{ crop.variety }}</p>
-      <p>Planting Date: {{ crop.planting_date }}</p>
-      <p>Description: {{ crop.description }}</p>
-      <p>Quantity: {{ crop.quantity }}</p>
-      <p>Harvested: {{ crop.is_harvested }}</p>
-      
-      <a href="{% url 'home_page:add-crops'%}">add</a>
-      <a href="{% url 'home_page:update-crops' crop.id %}">Update</a>
-      <a href="{% url 'home_page:delete-crops' crop.id %}">Delete</a>
-      
-      <hr>
-    {% endfor %}
+    <table class="crop-table">
+      <tr>
+        <th>Crop ID</th>
+        <th>Name</th>
+        <th>Variety</th>
+        <th>Planting Date</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Harvested</th>
+        <th>Actions</th>
+      </tr>
+      {% for crop in crops %}
+        <tr>
+          <td>{{ crop.id }}</td>
+          <td>{{ crop.name }}</td>
+          <td>{{ crop.variety }}</td>
+          <td>{{ crop.planting_date }}</td>
+          <td>{{ crop.description }}</td>
+          <td>{{ crop.quantity }}</td>
+          <td>{{ crop.is_harvested }}</td>
+          <td>
+            <a href="{% url 'home_page:add-crops' %}">Add</a>
+            <a href="{% url 'home_page:update-crops' crop.id %}">Update</a>
+            <a href="{% url 'home_page:delete-crops' crop.id %}">Delete</a>
+          </td>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
   {% else %}
-    <p>No crops found.</p>
+    <p class="no-crops">No crops found.</p>
   {% endif %}
 </body>
 </html>
