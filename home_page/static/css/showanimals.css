@@ -1,0 +1,22 @@
+
+/* Apply styles to the animal list */
+ul.animal-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Apply styles to each list item */
+  ul.animal-list li {
+    margin-bottom: 10px;
+  }
+  
+  /* Apply styles to the animal picture */
+  ul.animal-list img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  /* Apply styles to the labels */
+  ul.animal-list strong {
+    font-weight: bold;
+  }

@@ -1,6 +1,10 @@
-
+<head>
+<title>update crop</title>
+  {%load static%}  
+  <link href="{% static 'css/update.css' %}" rel="stylesheet">
+</head>
+<body>
   <h1>Update Crop</h1>
-
   <form method="post">
     {% csrf_token %}
 
@@ -27,3 +31,4 @@
 
     <input type="submit" value="Update">
   </form>
+</body>

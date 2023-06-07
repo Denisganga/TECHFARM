@@ -152,3 +152,6 @@ DEFAULT_FROM_EMAIL = 'agritech1623@gmail.com'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'MainPage'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

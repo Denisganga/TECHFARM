@@ -80,3 +80,26 @@ def delete_crop(request, id):
         return redirect('home_page:show-crops')
 
     return render(request, 'home_page/delete_crop.html', {'crop': crop})
+
+
+
+#view function of the Animal AnimalsForm
+from .animals_form import AnimalsForm
+from .models import Animals
+
+def add_animals(request):
+    if request.method == 'POST':
+        form = AnimalsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage:show-animals')
+    else:
+        form = AnimalsForm()
+
+    return render(request, 'home_page/addanimals.html', {'form': form})
+
+
+def show_animals(request):
+    animals=Animals.objects.all()
+
+    return render (request,"home_page/showanimals.html",{'animals':animals})

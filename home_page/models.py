@@ -14,3 +14,11 @@ class Crops(models.Model):
         db_table="crops"
 
 
+# Animals model
+
+class Animals(models.Model):
+    Aid=models.CharField(max_length=1000000, default=0)
+    picture=models.ImageField(upload_to='animal_pictures')
+    name=models.CharField(max_length=20)
+    age=models.IntegerField()
+    production=models.DecimalField(decimal_places=2, max_digits=3)
