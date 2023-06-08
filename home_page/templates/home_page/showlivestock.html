@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>showanimals</title>
+    {% load static %}  
+    <link href="{% static 'css/showlivestock.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>LIVESTOCK</h1>
+    <ul class="animal-list">
+        {% for animal in animals %}
+        <li>
+            <div class="animal-container">
+                <div class="animal-info">
+                    <div class="animal-id">
+                        <strong>ID:</strong> {{ animal.Aid }}
+                    </div>
+                    <div class="animal-details">
+                        <div class="animal-name">
+                            <strong>Name:</strong> {{ animal.name }}
+                        </div>
+                        <div class="animal-age">
+                            <strong>Age:</strong> {{ animal.age }}
+                        </div>
+                        <div class="animal-production">
+                            <strong>Production in litres:</strong> {{ animal.production }}
+                        </div>
+                    </div>
+                </div>
+                <div class="animal-picture">
+                    <img src="{{ animal.picture.url }}" alt="{{ animal.name }} Image">
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home_page:add-animals' %}" class="add-button">Add</a>
+    <a href="{% url 'home_page:update-animals' animal.id %}">Update</a>
+</body>
+</html>
+

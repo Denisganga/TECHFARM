@@ -13,10 +13,6 @@ def Machinery(request):
     # Your view logic goes here
     return render(request, 'home_page/machinery.html')
 
-def Livestock(request):
-    # Your view logic goes here
-    return render(request,'home_page/livestock.html')
-
 def Harvestshow(request):
     # Your view logic goes here
     return render(request,'home_page/harvestshow.html')
@@ -102,4 +98,24 @@ def add_animals(request):
 def show_animals(request):
     animals=Animals.objects.all()
 
-    return render (request,"home_page/showanimals.html",{'animals':animals})
+    return render (request,"home_page/showlivestock.html",{'animals':animals})
+
+def update_animal(request,id):
+    animal=Animals.object.all(id=id)
+    form=AnimalsForm(request.POST,instance=animal)
+
+    if form.is_valid():
+        form.save()
+        return redirect("home_page:show-animals")
+    return render(request,"home_page/update_animal.html",{'animal':animal})
+
+def delete_animal(request,id):
+    animal=Animals.object.get(id=id)
+
+    if request.method=='POST':
+        animal.delete()
+        return redirect('home_page/delete_animal.html')
+    
+    return render(request, 'home_page/delete_animal.html',{'animal':animal})
+
+        

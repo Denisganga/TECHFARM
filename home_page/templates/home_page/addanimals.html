@@ -2,10 +2,14 @@
 <head>    
 <title>add animal</title>
 {{ form.media }}
+
+{%load static%}  
+  <link href="{% static 'css/addanimals.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Add Animal</h1>
+    
 <form method="post" enctype="multipart/form-data">
+  <h1>Add Animal</h1>
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Update">
