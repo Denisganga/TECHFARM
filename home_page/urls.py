@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MainPage,FarmOverview,Machinery,Harvestshow,Expenses,Reports,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals
+from .views import MainPage,FarmOverview,Machinery,Harvestshow,Expenses,Reports,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal
 from home_page import views 
 
 from django.conf import settings
@@ -40,5 +40,7 @@ urlpatterns = [
 
    path('showanimals/',show_animals,name='show-animals'),
 
-    path('update/<int:id>/', update, name='update-animals')
+   path('update_animal/<int:id>/', update_animal, name='update-animal'),
+
+   path('delete_annimal/<int:id>/', delete_animal, name='delete-animal')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

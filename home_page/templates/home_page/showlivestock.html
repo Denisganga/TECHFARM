@@ -29,13 +29,16 @@
                 <div class="animal-picture">
                     <img src="{{ animal.picture.url }}" alt="{{ animal.name }} Image">
                 </div>
+                <div class="animal-actions">
+                    <a href="{% url 'home_page:update-animal' id=animal.id %}"class="update-link">Update</a>
+                    <a href="{% url 'home_page:delete-animal' id=animal.id %}"class="delete-link">Delete</a>
+                </div>
             </div>
         </li>
         {% endfor %}
     </ul>
 
     <a href="{% url 'home_page:add-animals' %}" class="add-button">Add</a>
-    <a href="{% url 'home_page:update-animals' animal.id %}">Update</a>
+
 </body>
 </html>
-

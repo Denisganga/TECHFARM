@@ -83,3 +83,13 @@ ul.animal-list li {
 .add-button:hover {
   background-color: #0056b3;
 }
+.update-link {
+  color: blue;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+.delete-link {
+  color: red;
+  text-decoration: none;
+}

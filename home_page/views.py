@@ -88,7 +88,7 @@ def add_animals(request):
         form = AnimalsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('homepage:show-animals')
+            return redirect('home_page:show-animals')
     else:
         form = AnimalsForm()
 
@@ -100,21 +100,22 @@ def show_animals(request):
 
     return render (request,"home_page/showlivestock.html",{'animals':animals})
 
-def update_animal(request,id):
-    animal=Animals.object.all(id=id)
-    form=AnimalsForm(request.POST,instance=animal)
+def update_animal(request, id):
+    animals = Animals.objects.get(id=id)
+    form = AnimalsForm(request.POST, instance=animals)
 
     if form.is_valid():
         form.save()
         return redirect("home_page:show-animals")
-    return render(request,"home_page/update_animal.html",{'animal':animal})
+    #return render(request, "home_page:update_animal.html", {'animals': animals})
+    return render(request, "home_page/update_animal.html", {'animals': animals})
 
 def delete_animal(request,id):
-    animal=Animals.object.get(id=id)
+    animal=Animals.objects.get(id=id)
 
     if request.method=='POST':
         animal.delete()
-        return redirect('home_page/delete_animal.html')
+        return redirect('home_page:show-animals')
     
     return render(request, 'home_page/delete_animal.html',{'animal':animal})
 
