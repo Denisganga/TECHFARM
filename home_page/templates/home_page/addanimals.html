@@ -8,7 +8,7 @@
 </head>
 <body>
     
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data"><!--when you want to upload fies -->
   <h1>Add Animal</h1>
   {% csrf_token %}
   {{ form.as_p }}

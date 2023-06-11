@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>add machinery</title>
+    </head>
+    <body>
+        <h1>Add Crops</h1>
+        <form method="POST" action={%url 'home_page:add-machinery'%}>
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type="submit" value="add">
+        </form>
+    </body>
+    </html>

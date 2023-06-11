@@ -1,0 +1,32 @@
+<head>
+    <title>update crop</title>
+      {%load static%}  
+      <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Update Machinery</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_number_plate">Number Plate:</label>
+        <input type="text" name="number_plate" id="id_number_plate" value="{{machinery.number_plate }}" required>
+    
+        <label for="id_model">Model:</label>
+        <input type="text" name="model" id="id_model" value="{{ machinery.model }}" required>
+    
+        <label for="id_purchase_date">Purchase Date:</label>
+        <input type="date" name="purchase_date" id="id_purchase_date" value="{{ machinery.purchase_date }}" required>
+    
+        <label for="id_description">Description:</label>
+        <input type="text" name="description" id="id_description" value="{{ machinery.description }}" required>
+    
+        <label for="id_manufacture_year">Manufacture Year:</label>
+        <input type="number" name="manufacture_year" id="id_manufacture_year" value="{{ machinery.manufacture_year }}"required>
+    
+        <label for="id_purchase_price">Purchase Price:</label>
+        <input type="number" name="purchase_price" id="id_purchase_price" value="{{ machinery.purchase_price }}"required>
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>

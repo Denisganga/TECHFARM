@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MainPage,FarmOverview,Machinery,Harvestshow,Expenses,Reports,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal
+from .views import MainPage,FarmOverview,Harvestshow,Expenses,Reports,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery
 from home_page import views 
 
 from django.conf import settings
@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('farmoverview/',FarmOverview,name="farm-overview"),
 
-    path('machinery/',Machinery, name="machinery"),
+    #path('machinery/',Machinery, name="machinery"),
 
     #path('livestock/',showanimals, name="livestock"),
 
@@ -42,5 +42,11 @@ urlpatterns = [
 
    path('update_animal/<int:id>/', update_animal, name='update-animal'),
 
-   path('delete_annimal/<int:id>/', delete_animal, name='delete-animal')
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+   path('delete_annimal/<int:id>/', delete_animal, name='delete-animal'),
+
+   path('add_machinery/', add_machinery, name='add-machinery'),
+   path('show_machinery/', show_machinery, name='show-machinery'),
+   path('update_machinery/<str:number_plate>/',update_machinery, name='update-machinery'),
+   path('delete_machinery/<str:number_plate>/',delete_machinery,name="delete-machinery")
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# makes the photo to appear

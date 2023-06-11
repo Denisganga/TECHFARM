@@ -9,9 +9,9 @@ def FarmOverview(request):
     # Your view logic goes here
     return render(request,'home_page/overview.html')
 
-def Machinery(request):
+#def Machinery(request):
     # Your view logic goes here
-    return render(request, 'home_page/machinery.html')
+    #return render(request, 'home_page/machinery.html')
 
 def Harvestshow(request):
     # Your view logic goes here
@@ -107,7 +107,6 @@ def update_animal(request, id):
     if form.is_valid():
         form.save()
         return redirect("home_page:show-animals")
-    #return render(request, "home_page:update_animal.html", {'animals': animals})
     return render(request, "home_page/update_animal.html", {'animals': animals})
 
 def delete_animal(request,id):
@@ -119,4 +118,38 @@ def delete_animal(request,id):
     
     return render(request, 'home_page/delete_animal.html',{'animal':animal})
 
-        
+        #view function of the Machinery MachineryForm
+from .machinery_form import MachineryForm
+from .models import Machinery
+
+def add_machinery(request):
+    if request.method == 'POST':
+        form = MachineryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:show-machinery')
+    else:
+        form = MachineryForm()
+
+    return render(request, 'home_page/addmachinery.html', {'form': form})
+
+def show_machinery(request):
+    machinery=Machinery.objects.all()
+
+    return render (request,"home_page/showmachinery.html",{'machinery':machinery})
+
+def update_machinery(request,number_plate):
+     machinery=Machinery.objects.get(number_plate=number_plate)
+     form=MachineryForm(request.POST,instance=machinery)
+     
+     if form.is_valid():
+         form.save()
+         return redirect("home_page:show-machinery")
+     return render(request, "home_page/update_machinery.html", {'machinery': machinery})
+
+def delete_machinery(request,number_plate):
+    machinery=Machinery.objects.get(number_plate=number_plate)
+    if request.method=='POST':
+        machinery.delete()
+        return redirect('home_page:show-machinery')
+    return render(request,'home_page/delete_machinery.html',{'machinery':machinery})

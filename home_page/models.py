@@ -22,3 +22,22 @@ class Animals(models.Model):
     name=models.CharField(max_length=20)
     age=models.IntegerField()
     production=models.DecimalField(decimal_places=2, max_digits=3)
+
+
+
+
+    #Machinery model
+
+class Machinery(models.Model):
+        
+        number_plate=models.CharField(max_length=20, primary_key=True)
+        model=models.CharField(max_length=20)
+        purchase_date=models.DateField()
+        description=models.TextField()
+        manufacture_year=models.IntegerField()
+        purchase_price=models.DecimalField(decimal_places=2, max_digits=30)
+
+        class Meta:
+            db_table="machinery"
+
+

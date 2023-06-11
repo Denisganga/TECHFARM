@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Machinery</title>
+    {%load static%}  
+  <link href="{% static 'css/showmachinery.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Machinery Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Number Plate</th>
+                <th>Model</th>
+                <th>Purchase Date</th>
+                <th>Description</th>
+                <th>Manufacture Year</th>
+                <th>Purchase Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for machinery in machinery %}
+            <tr>
+                <td>{{ machinery.number_plate }}</td>
+                <td>{{ machinery.model }}</td>
+                <td>{{ machinery.purchase_date }}</td>
+                <td>{{ machinery.description }}</td>
+                <td>{{ machinery.manufacture_year }}</td>
+                <td>{{ machinery.purchase_price }}</td>  
+                <td>
+                <a href="{% url 'home_page:update-machinery' number_plate=machinery.number_plate %}" class="update-link">update</a>
+                <a href="{% url 'home_page:delete-machinery' number_plate=machinery.number_plate %}"class="delete-link">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home_page:add-machinery' %}" class="add-button">Add</a>
+</body>
+</html>
