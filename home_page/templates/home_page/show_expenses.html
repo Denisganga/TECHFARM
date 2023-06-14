@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Expenses</title>
+    {%load static%}  
+  <link href="{% static 'css/show_expenses.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Expenses Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Eid</th>
+                <th>date</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Receipt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.Eid }}</td>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.description }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>
+            
+                {% if expense.receipt %}
+                <a href="{{ expense.receipt.url }}" target="_blank">View Receipt</a>
+            {% else %}
+                N/A
+            {% endif %}
+               </td>  
+            
+            
+            <td><a href="{% url 'home_page:update-expenses' Eid=expense.Eid %}" class="update-link">Update</a>
+                <a href="{% url 'home_page:delete-expenses' Eid=expense.Eid %}"class="delete-link">Delete</a>
+
+
+            </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  <a href="{% url 'home_page:add-expenses' %}" class="add-button">Add</a>
+</body>
+</html>

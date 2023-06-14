@@ -1,10 +1,14 @@
 <html>
     <head>
         <title>add machinery</title>
+        {%load static%}  
+        <link href="{% static 'css/addmachine.css' %}" rel="stylesheet">
     </head>
+    
     <body>
-        <h1>Add Crops</h1>
+        
         <form method="POST" action={%url 'home_page:add-machinery'%}>
+            <h1>Add Machine</h1>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">

@@ -41,3 +41,17 @@ class Machinery(models.Model):
             db_table="machinery"
 
 
+            #expense model
+
+class Expenses(models.Model):
+     
+     Eid=models.IntegerField(default=1,primary_key=True)
+     date=models.DateField()
+     description=models.TextField()
+     amount=models.BigIntegerField()
+     receipt = models.FileField(upload_to='expenses/', blank=True, null=True)
+
+     class Meta:
+          db_table="expense"
+
+

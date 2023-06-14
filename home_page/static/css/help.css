@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Adjust spacing */
+  .content-container {
+    padding: 20px;
+  }
+  
+  /* Apply specific styles for help section */
+  .help-section {
+    margin-bottom: 30px;
+  }
+  
+  .help-section h2 {
+    color: #333;
+  }
+  
+  .help-section p {
+    color: #666;
+  }
+  

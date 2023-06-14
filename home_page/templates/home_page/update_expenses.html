@@ -1,0 +1,28 @@
+<head>
+    <title>update expenses</title>
+      {%load static%}  
+      <link href="{% static 'css/update_expenses.css' %}" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Update Expenses</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Eid">Expense Id:</label>
+        <input type="number" name="Eid" id="id_Eid" value="{{expense.Eid }}" required>
+    
+        <label for="id_date">Date:</label>
+        <input type="date" name="date" id="id_date" value="{{ expense.date }}" required>
+    
+        <label for="id_description">Description:</label>
+        <input type="text" name="description" id="id_description" value="{{ expense.description }}" required>
+    
+        <label for="id_amount">Amount:</label>
+        <input type="number" name="amount" id="id_amount" value="{{ expense.amount }}" required>
+    
+        <label for="id_receipt">Receipt:</label>
+        <input type="file" name="receipt" id="id_receipt" value="{{ expense.receipt }}" accept=".pdf" blank=true null=true required>
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>

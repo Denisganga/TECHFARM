@@ -1,8 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Welcome to Our Website</title>
-</head>
-  <body>contact denis @ +254115735292</body>
-  <p>email @ denisnganga16@gmail.com</p>
-  </html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
+  <h1>Help Section</h1>
+
+  <h2>Livestock Management</h2>
+  <p>
+    <strong>Overview:</strong> Livestock management allows you to keep track of your animals and their related information.<br>
+    <strong>Adding Livestock:</strong> To add a new livestock entry, navigate to the Livestock section in the dashboard and click on the "Add" button. Fill in the required details. Click "update" to create the entry.<br>
+    <strong>Updating Livestock:</strong> To update an existing livestock entry, locate the specific entry in the Livestock list. Click on the update  to open the edit page. Modify the desired fields and click "update" to update the information.<br>
+    <strong>Deleting Livestock:</strong> To delete a livestock entry, find the entry in the Livestock list. Click on the delete  and confirm the deletion. Note that this action cannot be undone.
+  </p>
+
+  <h2>Crop Management</h2>
+  <p>
+    <strong>Overview:</strong> Crop management allows you to track and manage your crops efficiently.<br>
+    <strong>Adding Crops:</strong> To add a new crop, go to the Crops section and click on the "Add" button. Fill in the required details such as crop name, planting date, and any additional information. Save the entry to create a new crop record.<br>
+    <strong>Updating Crops:</strong> To update an existing crop entry, locate the specific crop in the Crops list. Click on the update   to open the edit page. Modify the desired fields and click "update" to update the information.<br>
+    <strong>Deleting Crops:</strong> To delete a crop entry, find the entry in the Crops list. Click on the delete  and confirm the deletion. Please note that this action cannot be undone.
+  </p>
+
+  <h2>Machinery Management</h2>
+  <p>
+    <strong>Overview:</strong> Machinery management helps you keep track of the machinery and equipment used on your farm.<br>
+    <strong>Adding Machinery:</strong> To add a new machinery entry, navigate to the Machinery section and click on the "Add" button. Fill in the required details such as machinery number plate, and any additional information. Save the entry to create a new machinery record.<br>
+    <strong>Updating Machinery:</strong> To update an existing machinery entry, locate the specific machinery in the Machinery list. Click on the update  to open the edit page. Modify the desired fields and click "update" to update the information.<br>
+    <strong>Deleting Machinery:</strong> To delete a machinery entry, find the entry in the Machinery list. Click on the delete icon and confirm the deletion. Please note that this action cannot be undone.
+  </p>
+
+  <h2>Harvest Management</h2>
+  <p>
+    <strong>Overview:</strong> Harvest management involves tracking and managing the harvest of your crops.<br>
+    <strong>Recording Harvest:</strong> To record harvest data, navigate to the Harvest section and click onn the small box besides the harvest to mark a crop as harvested.<br>
+   
+   
+  </p>
+  <h2>Expense Management</h2>
+<p>
+  <strong>Overview:</strong> Expense management allows you to track and manage your farm expenses efficiently.<br>
+  <strong>Adding Expenses:</strong> To add a new expense, go to the Expenses section and click on the "Add" button. Fill in the required details such as date, description, amount, and optionally upload a receipt. Save the entry to create a new expense record.<br>
+  <strong>Updating Expenses:</strong> To update an existing expense entry, locate the specific expense in the Expenses list. Click on the "Update" link to open the edit page. Modify the desired fields and click "Update" to save the changes.<br>
+  <strong>Deleting Expenses:</strong> To delete an expense entry, find the entry in the Expenses list. Click on the "Delete" link and confirm the deletion. Please note that this action cannot be undone.<br>
+  <strong>Viewing Receipts:</strong> If a receipt is uploaded for an expense, you can view it by clicking on the "View Receipt" link in the Expenses list. This will open the receipt in a new tab for you to review.
+</p>
+{% endblock %}

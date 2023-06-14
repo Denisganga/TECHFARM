@@ -153,3 +153,44 @@ def delete_machinery(request,number_plate):
         machinery.delete()
         return redirect('home_page:show-machinery')
     return render(request,'home_page/delete_machinery.html',{'machinery':machinery})
+
+
+
+
+#view function of the expenses
+from .expenses_form import ExpensesForm
+from .models import Expenses
+
+def add_expenses(request):
+    if request.method == 'POST':
+        form = ExpensesForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:show-expenses')
+    else:
+        form = ExpensesForm()
+    
+    return render(request, 'home_page/add_expense.html', {'form': form})
+
+
+def show_expenses(request):
+    expenses=Expenses.objects.all()
+
+    return render(request,"home_page/show_expenses.html",{'expenses':expenses})
+
+
+def update_expenses(request,Eid):
+    expenses=Expenses.objects.get(Eid=Eid)
+    form=ExpensesForm(request.POST,instance=expenses)
+
+    if form.is_valid():
+        form.save()
+        return redirect("home_page:show-expenses")
+    return render(request,"home_page/update_expenses.html",{'expenses':expenses})
+
+def delete_expenses(request,Eid):
+    expenses=Expenses.objects.get(Eid=Eid)
+    if request.method=='POST':
+        expenses.delete()
+        return redirect("home_page:show-expenses")
+    return render(request,'home_page/delete_expense.html',{'expenses':expenses})
