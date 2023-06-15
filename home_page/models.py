@@ -54,4 +54,17 @@ class Expenses(models.Model):
      class Meta:
           db_table="expense"
 
+          #reports model
+
+
+
+class Reports(models.Model):
+     
+     Rid=models.IntegerField(default=1,primary_key=True)
+     date=models.DateField()
+     the_field=models.TextField()
+     the_report=models.TextField()
+     
+
+
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Report</title>
+  {%load static%}  
+  <link href="{% static 'css/delete_report.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div class="delete-container">
+    <h1>Delete Report</h1>
+    <p>Are you sure you want to delete this Report?</p>
+    <form method="post">
+      {% csrf_token %}
+      <input class="delete-button" type="submit" value="Delete">
+      <a class="cancel-link" href="{% url 'home_page:show-reports' %}">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>    
+<title>add REports</title>
+
+{%load static%}  
+  <link href="{% static 'css/add_report.css' %}" rel="stylesheet">
+</head>
+<body>
+    
+<form method="post" action={%url 'home_page:add-reports'%}><!--when you want to upload fies -->
+  <h1>Add Report</h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update">
+</form>
+</body>
+</html>

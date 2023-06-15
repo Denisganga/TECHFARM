@@ -21,9 +21,9 @@ def Expenses(request):
     # Your view logic goes here
     return render(request,'home_page/expenses.html')
 
-def Reports(request):
+#def Reports(request):
     # Your view logic goes here
-    return render(request,'home_page/reports.html')
+    #return render(request,'home_page/reports.html')
 
 def Settings(request):
     # Your view logic goes here
@@ -194,3 +194,43 @@ def delete_expenses(request,Eid):
         expenses.delete()
         return redirect("home_page:show-expenses")
     return render(request,'home_page/delete_expense.html',{'expenses':expenses})
+
+
+#Reports view
+
+from .reports_form import ReportsForm
+from .models import Reports
+def add_reports(request):
+    if request.method=='POST':
+        form=ReportsForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:show-reports')
+    else:
+        form=ReportsForm()
+
+    return render(request,'home_page/add_report.html',{'form':form})
+
+def show_reports(request):
+    reports=Reports.objects.all()
+
+    return render(request,"home_page/show_report.html",{'reports':reports})
+
+def update_reports(request,Rid):
+    reports=Reports.objects.get(Rid=Rid)
+    form=ReportsForm(request.POST,instance=reports)
+
+    if form.is_valid():
+        form.save()
+        return redirect("home_page:show-reports")
+    return render (request,"home_Page/update_reports.html",{'reports':reports})
+
+
+def delete_reports(request,Rid):
+    reports=Reports.objects.get(Rid=Rid)
+    if request.method=='POST':
+        reports.delete()
+        return redirect("home_page:show-reports")
+    return render (request,'home_page/delete_report.html',{'reports':reports})
+
+    

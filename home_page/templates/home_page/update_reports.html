@@ -1,0 +1,28 @@
+<head>
+    <title>update crop</title>
+      {%load static%}  
+      <link href="{% static 'css/update_reports.css' %}" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Update Report</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Rid">Report Number:</label>
+        <input type="number" name="Rid" id="Rid" value="{{report.Rid}}" required>
+    
+        <label for="id_date">Date:</label>
+        <input type="date" name="date" id="id_date" value="{{ report.date }}" required>
+    
+        <label for="id_the_field">The Field:</label>
+        <input type="text" name="the_field" id="id_the_field" value="{{ report.the_field }}" required>
+    
+        <label for="id_the_report">The Report:</label>
+        <input type="text" name="the_report" id="id_the_report" value="{{ report.the_report }}" required>
+    
+        
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>

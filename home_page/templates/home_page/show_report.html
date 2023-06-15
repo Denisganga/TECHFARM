@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Reports</title>
+    {%load static%}  
+  <link href="{% static 'css/show_reports.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>REPORT</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rid</th>
+                <th>date</th>
+                <th>the_field</th>
+                <th>the_report</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.Rid }}</td>
+                <td>{{ report.date }}</td>
+                <td>{{ report.the_field }}</td>
+                <td>{{ report.the_report }}</td>  
+
+                <td>
+                    <a href="{% url 'home_page:update-reports' Rid=report.Rid %}" class="update-link">update</a>
+                    <a href="{% url 'home_page:delete-reports' Rid=report.Rid %}"class="delete-link">Delete</a>
+                </td>
+
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home_page:add-reports' %}" class="add-button">Add</a>
+</body>
+</html>
