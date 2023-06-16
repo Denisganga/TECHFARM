@@ -1,0 +1,23 @@
+<head>
+    <title>update overview</title>
+      {%load static%}  
+      <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Update Overview</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Fid">Farm Overview ID:</label>
+        <input type="number" name="Fid" id="id_Fid" value="{{overview.Fid }}" required>
+    
+        <label for="id_Assets">Assets:</label>
+        <input type="text" name="Assets" id="id_Assets" value="{{ overview.Assets }}" required>
+    
+        <label for="id_Number">Number:</label>
+        <input type="text" name="Number" id="id_Number" value="{{ overview.Number }}" required>
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>

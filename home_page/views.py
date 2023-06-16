@@ -234,3 +234,43 @@ def delete_reports(request,Rid):
     return render (request,'home_page/delete_report.html',{'reports':reports})
 
     
+
+    #view function of the Farm Overview
+from .overview_form import OverviewForm
+from .models import Overview
+
+
+def add_overview(request):
+    if request.method=='POST':
+        form=OverviewForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:show-overview')
+    else:
+        form=OverviewForm()
+
+    return render(request,'home_page/add_overview.html',{'form':form})
+
+
+def show_overview(request):
+    overview=Overview.objects.all()
+
+    return render(request,"home_page/show_overview.html",{'overview':overview})
+
+
+def update_overview(request,Fid):
+    Overview=Overview.objects.get(Fid=Fid)
+    form=OverviewForm(request.POST,instance=Overview)
+
+    if form.is_valid():
+        form.save()
+        return redirect("home_page:show-overview")
+    return render (request,"home_page/update_overview.html",{'overview':Overview})
+    
+
+def delete_overview(request, Fid):
+    overview = Overview.objects.get(Fid=Fid)
+    if request.method == 'POST':
+        overview.delete()
+        return redirect('home_page:show-overview')
+    return render(request, 'home_page/delete_overview.html', {'overview': overview})

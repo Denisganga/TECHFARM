@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MainPage,FarmOverview,Harvestshow,Expenses,Reports,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports
+from .views import MainPage,FarmOverview,Harvestshow,Expenses,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports,add_overview,show_overview,update_overview,delete_overview
 from home_page import views 
 
 from django.conf import settings
@@ -58,7 +58,13 @@ urlpatterns = [
     path('add_reports/',add_reports, name='add-reports'),
     path('show_reports/', show_reports, name="show-reports"),
     path('update_reports/<int:Rid>/',update_reports, name="update-reports"),
-    path('delete_reports/<int:Rid>/',delete_reports, name="delete-reports" )
+    path('delete_reports/<int:Rid>/',delete_reports, name="delete-reports" ),
+
+
+    path('add_overview/',add_overview, name="add-overview"),
+    path('show_overview/', show_overview, name="show-overview"),
+    path('update_overview/<int:Fid>/',update_overview, name="update-overview"),
+    path('delete_overview/<int:Fid>/',delete_overview, name="delete-overview")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# makes the photo to appear
 

@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>add asset</title>
+        {%load static%}  
+        <link href="{% static 'css/add_overview.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <form method="POST" action={%url 'home_page:add-overview'%}>
+            <h1>Add Asset</h1>
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type="submit" value="add">
+        </form>
+    </body>
+    </html>

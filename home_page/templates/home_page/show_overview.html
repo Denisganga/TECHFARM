@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Assets</title>
+    {%load static%}  
+  <link href="{% static 'css/show_overview.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Farm Overview</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fid</th>
+                <th>Assets</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for overview in overview %}
+            <tr>
+                <td>{{ overview.Fid }}</td>
+                <td>{{ overview.Assets }}</td>
+                <td>{{ overview.Number }}</td>
+
+
+                <td>
+                    <a href="{% url 'home_page:update-overview' Fid=overview.Fid %}" class="update-link">update</a>
+                    <a href="{% url 'home_page:delete-overview' Fid=overview.Fid %}"class="delete-link">Delete</a>
+                </td>
+                
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home_page:add-overview' %}" class="add-button">Add</a>
+</body>
+</html>

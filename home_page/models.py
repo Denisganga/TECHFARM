@@ -65,6 +65,14 @@ class Reports(models.Model):
      the_field=models.TextField()
      the_report=models.TextField()
      
+class Overview(models.Model):
+     
+     Fid=models.IntegerField(default=1,primary_key=True)
+     Assets=models.CharField(max_length=100000)
+     Number=models.TextField()
+
+     class Meta:
+          db_table="farm_overview"
 
 
 
