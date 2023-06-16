@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>add Employee</title>
+        {%load static%}  
+        <link href="{% static 'css/addmachine.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        <form method="POST" action={%url 'home_page:add-employees'%}>
+            <h1>Add Employee</h1>
+            {%csrf_token%}
+            {{form.as_p}}
+            <input type="submit" value="add">
+        </form>
+    </body>
+    </html>

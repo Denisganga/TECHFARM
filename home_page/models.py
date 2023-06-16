@@ -75,4 +75,13 @@ class Overview(models.Model):
           db_table="farm_overview"
 
 
+class Employees(models.Model):
+     Eid=models.IntegerField(default=1,primary_key=True)
+     Name=models.CharField(max_length=20)
+     Position=models.CharField(max_length=20)
+     Salary=models.IntegerField()
+     Performance=models.CharField(max_length=20)
 
+
+     class Meta:
+          db_table="emloyees"

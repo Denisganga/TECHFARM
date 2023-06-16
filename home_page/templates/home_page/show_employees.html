@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Employees</title>
+    {%load static%}  
+  <link href="{% static 'css/showmachinery.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Employees Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employees ID</th>
+                <th>NAme</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Performance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.Eid }}</td>
+                <td>{{ employee.Name }}</td>
+                <td>{{ employee.Position }}</td>
+                <td>{{ employee.Salary }}</td>
+                <td>{{ employee.Performance }}</td>
+
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home_page:add-employees' %}" class="add-button">Add</a>
+</body>
+</html>

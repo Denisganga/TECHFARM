@@ -5,21 +5,13 @@ def MainPage(request):
     # Your view logic goes here
     return render(request,'home_page/home.html')
 
-def FarmOverview(request):
-    # Your view logic goes here
-    return render(request,'home_page/overview.html')
-
-#def Machinery(request):
-    # Your view logic goes here
-    #return render(request, 'home_page/machinery.html')
-
 def Harvestshow(request):
     # Your view logic goes here
     return render(request,'home_page/harvestshow.html')
 
-def Expenses(request):
+#def Expenses(request):
     # Your view logic goes here
-    return render(request,'home_page/expenses.html')
+    #return render(request,'home_page/expenses.html')
 
 #def Reports(request):
     # Your view logic goes here
@@ -274,3 +266,25 @@ def delete_overview(request, Fid):
         overview.delete()
         return redirect('home_page:show-overview')
     return render(request, 'home_page/delete_overview.html', {'overview': overview})
+
+
+
+        #view function of the Employees
+
+from .employees_form import EmployeesForm
+from. models import Employees
+
+def add_employees(request):
+    if request.method=='POST':
+        form=EmployeesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:show-employees')
+    else:
+        form=EmployeesForm()
+
+    return render(request,'home_page/add_employees.html',{'form':form})
+
+def show_employees(request):
+    employees=Employees.objects.all()
+    return render(request,"home_page/show_employees.html",{'employees':employees})

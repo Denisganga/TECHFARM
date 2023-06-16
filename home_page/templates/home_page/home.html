@@ -20,26 +20,50 @@
     <h1>WELCOME BACK TO TECH FARM</h1>
     <!-- Add any additional header elements or navigation here -->
   </header>
-
-
-    <i class="fas fa-bars" id="btn"></i>
+   <i class="fas fa-bars" id="btn"></i>
+   
+   
+   
+<div class="container">
     
-  
+    
+
   <div class="sidebar">
     <img src="{% static 'images/logo.png' %}" alt="Logo" width="150" height="90">
     <ul class="sidebar-menu">
-      <li><a href="{% url 'home_page:farm-overview' %}"><span class="fa-solid fa-user"></span>     Farm Overview</a></li>
+      <li><a href="{% url 'home_page:show-overview' %}"><span class="fa-solid fa-user"></span>     Farm Overview</a></li>
       <li><a href="{% url 'home_page:show-crops' %}"><i class="fa-solid fa-seedling"></i> Crops</a></li>
       <li><a href="{% url 'home_page:show-animals' %}"><i class="fa-solid fa-cow"></i> Livestock</a></li>
       <li><a href="{% url 'home_page:show-machinery' %}"><i class="fa-solid fa-tractor"></i> Machinery</a></li>
       <li><a href="{% url 'home_page:show-crops' %}"><i class="fa-solid fa-lemon"></i> Harvest</a></li>
-      <li><a href="{% url 'home_page:expenses' %}"><i class="fa-solid fa-coins"></i> Expenses</a></li>
+      <li><a href="{% url 'home_page:show-expenses' %}"><i class="fa-solid fa-coins"></i> Expenses</a></li>
       <li><a href="{% url 'home_page:show-reports' %}"><i class="fa-solid fa-book-open-reader"></i> Reports</a></li>
       <li><a href="{% url 'home_page:settings' %}"><span class="fa-solid fa-gears"></span> Settings</a></li>
       <li><a href="{% url 'home_page:help' %}"><i class="fa-solid fa-circle-info"></i>  Help</a></li>
 
     </ul>
+
+    
   </div>
+
+
+  
+  <div class="main-content">
+    <div class="feature-rectangle">
+      <a href="{% url 'home_page:show-employees' %}"> Employees</a></li>
+      <!-- Add content for the Employers feature -->
+    </div>
+  
+    <div class="feature-rectangle">
+      <h2>Farm Gallery</h2>
+      <!-- Add content for the Farm Gallery feature -->
+    </div>
+  </div>
+
+
+
+
+</div>
 
   <div class="content">
     <!-- Add the main content of the dashboard here -->

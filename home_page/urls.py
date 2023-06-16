@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MainPage,FarmOverview,Harvestshow,Expenses,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports,add_overview,show_overview,update_overview,delete_overview
+from .views import MainPage,Harvestshow,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports,add_overview,show_overview,update_overview,delete_overview,add_employees,show_employees
 from home_page import views 
 
 from django.conf import settings
@@ -11,17 +11,9 @@ urlpatterns = [
     # ... other URL patterns
     path('mainpage/',MainPage, name="main-page"),
 
-    path('farmoverview/',FarmOverview,name="farm-overview"),
-
-    #path('machinery/',Machinery, name="machinery"),
-
-    #path('livestock/',showanimals, name="livestock"),
-
     path('harvest/',Harvestshow, name="harvest"),
 
-    path('expenses/',Expenses,name="expenses"),
-
-    #path('reports/', Reports, name="reports"),
+    #path('expenses/',Expenses,name="expenses"),
 
     path('settings/', Settings, name="settings"),
 
@@ -32,7 +24,6 @@ urlpatterns = [
 
     path('harvestshow/',show_crops, name='show-crops'),
 
-    #path('edit/<int:id>/', edit, name='edit-crops'),
     path('update/<int:id>/', update, name='update-crops'),
     path('delete/<int:id>/', delete_crop, name='delete-crops'),
 
@@ -64,7 +55,11 @@ urlpatterns = [
     path('add_overview/',add_overview, name="add-overview"),
     path('show_overview/', show_overview, name="show-overview"),
     path('update_overview/<int:Fid>/',update_overview, name="update-overview"),
-    path('delete_overview/<int:Fid>/',delete_overview, name="delete-overview")
+    path('delete_overview/<int:Fid>/',delete_overview, name="delete-overview"),
+
+
+    path('add_employees/',add_employees,name="add-employees"),
+    path('show_employees/',show_employees, name="show-employees")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# makes the photo to appear
 
