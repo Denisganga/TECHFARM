@@ -1,0 +1,18 @@
+<html>
+<head>    
+<title>add picture</title>
+{{ form.media }}
+
+{%load static%}  
+  <link href="{% static 'css/addanimals.css' %}" rel="stylesheet">
+</head>
+<body>
+    
+<form method="post" enctype="multipart/form-data"><!--when you want to upload fies -->
+  <h1>Add Picture</h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update">
+</form>
+</body>
+</html>

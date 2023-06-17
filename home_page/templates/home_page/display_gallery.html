@@ -1,0 +1,15 @@
+{%load static%}  
+<link href="{% static 'css/display_gallery.css' %}" rel="stylesheet">
+<div class="gallery-container">
+    {% for image in images %}
+      <div class="image-container">
+        <img src="{{ image.image.url }}" alt="{{ image.caption }}" class="image">
+        <div class="caption">{{ image.caption }}</div>
+        <a href="{% url 'home_page:delete-image' image_id=image.id %}" class="delete-link">Delete</a>
+      </div>
+    {% empty %}
+      <p>No images in the gallery.</p>
+    {% endfor %}
+  </div>
+  
+  <a href="{% url 'home_page:upload-image' %}" class="upload-link">Upload Image</a>

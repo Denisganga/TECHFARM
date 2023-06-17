@@ -288,3 +288,44 @@ def add_employees(request):
 def show_employees(request):
     employees=Employees.objects.all()
     return render(request,"home_page/show_employees.html",{'employees':employees})
+
+
+def update_employees(request,Eid):
+    employees=Employees.objects.get(Eid=Eid)
+    form=EmployeesForm(request.POST,instance=employees)
+
+    if form.is_valid():
+        form.save()
+        return redirect("home_page:show-employees")
+    return render(request,"home_page/update_employees.html",{'employees':employees})
+
+def delete_employees(request,Eid):
+    employees=Employees.objects.get(Eid=Eid)
+    if request.method=='POST':
+        employees.delete()
+        return redirect('home_page:show-employees')
+    return render(request,'home_page/delete_employees.html',{'employees':employees})
+
+
+from.farmimage_form import FarmimageForm
+from .models import Farmimage
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = FarmimageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page:display-gallery')
+    else:
+        form = FarmimageForm()
+    return render(request, 'home_page/upload_image.html', {'form': form})
+
+def display_gallery(request):
+    images = Farmimage.objects.all()
+    return render(request, 'home_page/display_gallery.html', {'images': images})
+
+def delete_image(request, image_id):
+    image = Farmimage.objects.get(pk=image_id)
+    image.delete()
+    return redirect('home_page:display-gallery')

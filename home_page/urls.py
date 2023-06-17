@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MainPage,Harvestshow,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports,add_overview,show_overview,update_overview,delete_overview,add_employees,show_employees
+from .views import MainPage,Harvestshow,Settings,Help,add_crops,show_crops,update,delete_crop,add_animals,show_animals,update_animal,delete_animal,add_machinery,show_machinery,update_machinery,delete_machinery,add_expenses,show_expenses,update_expenses,delete_expenses,add_reports,show_reports,update_reports,delete_reports,add_overview,show_overview,update_overview,delete_overview,add_employees,show_employees,update_employees,delete_employees,upload_image,display_gallery,delete_image
 from home_page import views 
 
 from django.conf import settings
@@ -59,7 +59,14 @@ urlpatterns = [
 
 
     path('add_employees/',add_employees,name="add-employees"),
-    path('show_employees/',show_employees, name="show-employees")
+    path('show_employees/',show_employees, name="show-employees"),
+    path('update_employees/<int:Eid>/',update_employees, name="update-employees"),
+    path('delete_employees/<int:Eid>/',delete_employees,name="delete-employees"),
+
+
+    path('upload_image/',upload_image, name="upload-image"),
+    path('display_gallery/', display_gallery,name="display-gallery"),
+    path('delete_image/<int:image_id>/',delete_image,name="delete-image")
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# makes the photo to appear
 

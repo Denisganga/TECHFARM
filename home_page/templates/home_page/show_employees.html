@@ -26,7 +26,8 @@
                 <td>{{ employee.Salary }}</td>
                 <td>{{ employee.Performance }}</td>
 
-
+                <td><a href="{% url 'home_page:update-employees' Eid=employee.Eid %}" class="update-link">Update</a>
+                    <a href="{% url 'home_page:delete-employees' Eid=employee.Eid %}"class="delete-link">Delete</a> </td>
 
             </tr>
             {% endfor %}

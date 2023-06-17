@@ -1,0 +1,30 @@
+<head>
+    <title>update Employee</title>
+      {%load static%}  
+      <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Update Employee</h1>
+      <form method="post">
+        {% csrf_token %}
+    
+        <label for="id_Eid">Employers ID:</label>
+        <input type="number" name="Eid" id="id_Eid" value="{{employee.Eid }}" required>
+    
+        <label for="id_Name">Name:</label>
+        <input type="text" name="Name" id="id_Name" value="{{ employee.Name }}" required>
+    
+        <label for="id_Position">Work Position:</label>
+        <input type="text" name="Position" id="id_Position" value="{{ employee.Position }}" required>
+    
+        <label for="id_Salary">Salary Amount:</label>
+        <input type="number" name="Salary" id="id_Salary" value="{{ employee.Salary }}" required>
+    
+        <label for="id_Performance">Performance:</label>
+        <input type="text" name="Performance" id="id_Performance" value="{{ employee.Performance }}"required>
+    
+    
+    
+        <input type="submit" value="Update">
+      </form>
+    </body>
