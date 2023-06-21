@@ -38,9 +38,10 @@
         </tr>
       {% endfor %}
     </table>
-    <a href="{% url 'home_page:add-crops' %}" class="add-button">Add</a>
   {% else %}
     <p class="no-crops">No crops found.</p>
   {% endif %}
+  
+  <a href="{% url 'home_page:add-crops' %}" class="add-button">Add</a>
 </body>
 </html>

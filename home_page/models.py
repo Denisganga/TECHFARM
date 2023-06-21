@@ -1,7 +1,12 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 
 class Crops(models.Model):
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
+
     cid=models.CharField(max_length=20,default=1)
     name=models.CharField(max_length=20)
     variety=models.CharField(max_length=20)
@@ -17,6 +22,9 @@ class Crops(models.Model):
 # Animals model
 
 class Animals(models.Model):
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)
+
     Aid=models.CharField(max_length=1000000, default=0)
     picture=models.ImageField(upload_to='animal_pictures')
     name=models.CharField(max_length=20)
@@ -29,6 +37,8 @@ class Animals(models.Model):
     #Machinery model
 
 class Machinery(models.Model):
+        
+        user = models.ForeignKey(User, on_delete=models.CASCADE,default=1)       
         
         number_plate=models.CharField(max_length=20, primary_key=True)
         model=models.CharField(max_length=20)
@@ -44,6 +54,8 @@ class Machinery(models.Model):
             #expense model
 
 class Expenses(models.Model):
+
+     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
      
      Eid=models.IntegerField(default=1,primary_key=True)
      date=models.DateField()
@@ -59,6 +71,8 @@ class Expenses(models.Model):
 
 
 class Reports(models.Model):
+
+     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
      
      Rid=models.IntegerField(default=1,primary_key=True)
      date=models.DateField()
@@ -66,6 +80,8 @@ class Reports(models.Model):
      the_report=models.TextField()
      
 class Overview(models.Model):
+
+     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
      
      Fid=models.IntegerField(default=1,primary_key=True)
      Assets=models.CharField(max_length=100000)
@@ -76,6 +92,10 @@ class Overview(models.Model):
 
 
 class Employees(models.Model):
+
+     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+
+
      Eid=models.IntegerField(default=1,primary_key=True)
      Name=models.CharField(max_length=20)
      Position=models.CharField(max_length=20)
@@ -88,6 +108,8 @@ class Employees(models.Model):
 
 
 class Farmimage(models.Model):
+
+     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
      image=models.ImageField(upload_to='farm_gallery')
      caption=models.CharField(max_length=100)
      uploaded_at = models.DateTimeField(auto_now_add=True)

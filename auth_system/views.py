@@ -48,11 +48,5 @@ def  Login(request):
 
     return render(request,'auth_system/login.html', {})
 
-from django.contrib.auth import views as auth_views
 
-def password_reset_confirm_view(request, uidb64, token):
-    return auth_views.PasswordResetConfirmView.as_view(
-        template_name='auth_system/password_reset_confirm.html',
-        success_url='/password_reset/complete/'
-    )(request, uidb64=uidb64, token=token)
   

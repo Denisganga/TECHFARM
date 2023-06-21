@@ -31,10 +31,19 @@ from django.shortcuts import render,redirect
 from .cropsforms import CropsForm
 from .models import Crops
 
+
+from django.contrib.auth.decorators import login_required
+
+
+
 def add_crops(request):
     if request.method == 'POST':
         form = CropsForm(request.POST)
         if form.is_valid():
+
+            crop = form.save(commit=False)
+            crop.user = request.user
+
             form.save()
             return redirect('home_page:show-crops')
     else:
@@ -43,7 +52,7 @@ def add_crops(request):
     return render(request, 'home_page/addcrops.html', {'form': form})
 
 def show_crops(request):
-    crops=Crops.objects.all()
+    crops = Crops.objects.filter(user=request.user)
     
     return render(request,"home_page/harvestshow.html",{'crops':crops})
     
@@ -79,6 +88,11 @@ def add_animals(request):
     if request.method == 'POST':
         form = AnimalsForm(request.POST, request.FILES)
         if form.is_valid():
+
+            animal = form.save(commit=False)
+            animal.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-animals')
     else:
@@ -88,7 +102,7 @@ def add_animals(request):
 
 
 def show_animals(request):
-    animals=Animals.objects.all()
+    animals = Animals.objects.filter(user=request.user)
 
     return render (request,"home_page/showlivestock.html",{'animals':animals})
 
@@ -118,6 +132,12 @@ def add_machinery(request):
     if request.method == 'POST':
         form = MachineryForm(request.POST)
         if form.is_valid():
+
+
+            machinery = form.save(commit=False)
+            machinery.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-machinery')
     else:
@@ -126,7 +146,7 @@ def add_machinery(request):
     return render(request, 'home_page/addmachinery.html', {'form': form})
 
 def show_machinery(request):
-    machinery=Machinery.objects.all()
+    machinery = Machinery.objects.filter(user=request.user)
 
     return render (request,"home_page/showmachinery.html",{'machinery':machinery})
 
@@ -157,6 +177,12 @@ def add_expenses(request):
     if request.method == 'POST':
         form = ExpensesForm(request.POST, request.FILES)
         if form.is_valid():
+
+
+            expenses = form.save(commit=False)
+            expenses.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-expenses')
     else:
@@ -166,7 +192,7 @@ def add_expenses(request):
 
 
 def show_expenses(request):
-    expenses=Expenses.objects.all()
+    expenses = Expenses.objects.filter(user=request.user)
 
     return render(request,"home_page/show_expenses.html",{'expenses':expenses})
 
@@ -196,6 +222,11 @@ def add_reports(request):
     if request.method=='POST':
         form=ReportsForm(request.POST,request.FILES)
         if form.is_valid():
+
+            reports = form.save(commit=False)
+            reports.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-reports')
     else:
@@ -204,7 +235,7 @@ def add_reports(request):
     return render(request,'home_page/add_report.html',{'form':form})
 
 def show_reports(request):
-    reports=Reports.objects.all()
+    reports = Reports.objects.filter(user=request.user)
 
     return render(request,"home_page/show_report.html",{'reports':reports})
 
@@ -236,6 +267,11 @@ def add_overview(request):
     if request.method=='POST':
         form=OverviewForm(request.POST,request.FILES)
         if form.is_valid():
+
+            overview = form.save(commit=False)
+            overview.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-overview')
     else:
@@ -245,14 +281,14 @@ def add_overview(request):
 
 
 def show_overview(request):
-    overview=Overview.objects.all()
+    overvew = Overview.objects.filter(user=request.user)
 
-    return render(request,"home_page/show_overview.html",{'overview':overview})
+    return render(request,"home_page/show_overview.html",{'overview':Overview})
 
 
 def update_overview(request,Fid):
-    Overview=Overview.objects.get(Fid=Fid)
-    form=OverviewForm(request.POST,instance=Overview)
+    overview=Overview.objects.get(Fid=Fid)
+    form=OverviewForm(request.POST,instance=overview)
 
     if form.is_valid():
         form.save()
@@ -278,6 +314,11 @@ def add_employees(request):
     if request.method=='POST':
         form=EmployeesForm(request.POST)
         if form.is_valid():
+
+            employees = form.save(commit=False)
+            employees.user = request.user
+        
+
             form.save()
             return redirect('home_page:show-employees')
     else:
@@ -286,7 +327,7 @@ def add_employees(request):
     return render(request,'home_page/add_employees.html',{'form':form})
 
 def show_employees(request):
-    employees=Employees.objects.all()
+    employees = Employees.objects.filter(user=request.user)
     return render(request,"home_page/show_employees.html",{'employees':employees})
 
 
@@ -315,14 +356,19 @@ def upload_image(request):
     if request.method == 'POST':
         form = FarmimageForm(request.POST, request.FILES)
         if form.is_valid():
+
+            image = form.save(commit=False)
+            image.user = request.user
+        
+
             form.save()
-            return redirect('home_page:display-gallery')
+            return redirect ('home_page:display-gallery')
     else:
         form = FarmimageForm()
     return render(request, 'home_page/upload_image.html', {'form': form})
 
 def display_gallery(request):
-    images = Farmimage.objects.all()
+    images = Farmimage.objects.filter(user=request.user)
     return render(request, 'home_page/display_gallery.html', {'images': images})
 
 def delete_image(request, image_id):
