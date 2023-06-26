@@ -100,7 +100,6 @@ def add_animals(request):
 
     return render(request, 'home_page/addanimals.html', {'form': form})
 
-
 def show_animals(request):
     animals = Animals.objects.filter(user=request.user)
 
@@ -218,6 +217,7 @@ def delete_expenses(request,Eid):
 
 from .reports_form import ReportsForm
 from .models import Reports
+
 def add_reports(request):
     if request.method=='POST':
         form=ReportsForm(request.POST,request.FILES)

@@ -4,4 +4,4 @@ from .models import Animals
 class AnimalsForm(forms.ModelForm):
     class Meta:
         model=Animals
-        fields='__all__'
+        fields=['Aid','picture','name','production']

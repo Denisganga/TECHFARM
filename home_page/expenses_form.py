@@ -4,4 +4,4 @@ from .models import Expenses
 class ExpensesForm(forms.ModelForm):
     class Meta:
         model=Expenses
-        fields="__all__"
+        fields=['Eid','date','description','amount','receipt']

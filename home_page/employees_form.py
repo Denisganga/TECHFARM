@@ -4,4 +4,4 @@ from .models import Employees
 class EmployeesForm(forms.ModelForm):
     class Meta:
         model=Employees
-        fields="__all__"
+        fields=['Eid','Name','Position','Salary','Performance']
