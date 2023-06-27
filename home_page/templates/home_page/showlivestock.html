@@ -1,11 +1,19 @@
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
 <head>
     <title>showanimals</title>
     {% load static %}  
     <link href="{% static 'css/showlivestock.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>LIVESTOCK</h1>
+    <h1>LIVESTOCK MANAGEMENT</h1>
     <ul class="animal-list">
         {% for animal in animals %}
         <li>
@@ -41,4 +49,4 @@
     <a href="{% url 'home_page:add-animals' %}" class="add-button">Add</a>
 
 </body>
-</html>
+{%endblock%}

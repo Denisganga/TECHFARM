@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
 <head>
   <title>Crops List</title>
   {%load static%}  
@@ -44,4 +51,4 @@
   
   <a href="{% url 'home_page:add-crops' %}" class="add-button">Add</a>
 </body>
-</html>
+{%endblock%}

@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
 <head>
   <title>Welcome to Our Website</title>
 </head>
-  <body>settinga</body>
-  </html>
+  <body>settings</body>
+{%endblock%}

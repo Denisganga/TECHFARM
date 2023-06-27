@@ -1,3 +1,12 @@
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
 {%load static%}  
 <link href="{% static 'css/display_gallery.css' %}" rel="stylesheet">
 <div class="gallery-container">
@@ -13,3 +22,4 @@
   </div>
   
   <a href="{% url 'home_page:upload-image' %}" class="upload-link">Upload Image</a>
+  {%endblock%}

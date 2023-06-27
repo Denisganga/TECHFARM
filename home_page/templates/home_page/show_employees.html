@@ -1,6 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
     <title>Show Employees</title>
     {%load static%}  
   <link href="{% static 'css/showmachinery.css' %}" rel="stylesheet">
@@ -35,4 +41,4 @@
     </table>
     <a href="{% url 'home_page:add-employees' %}" class="add-button">Add</a>
 </body>
-</html>
+{% endblock %}

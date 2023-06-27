@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
 <head>
     <title>Add Crops</title>
     {%load static%}  
@@ -13,4 +20,4 @@
         <input type="submit" value="Add">
     </form>
 </body>
-</html>
+{%endblock%}
