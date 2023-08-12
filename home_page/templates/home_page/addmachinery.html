@@ -1,8 +1,16 @@
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
     <head>
         <title>add machinery</title>
         {%load static%}  
-        <link href="{% static 'css/addmachine.css' %}" rel="stylesheet">
+        <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
     </head>
     
     <body>
@@ -14,4 +22,4 @@
             <input type="submit" value="add">
         </form>
     </body>
-    </html>
+    {%endblock%}

@@ -1,10 +1,19 @@
-<html>
+{% extends 'home_page/base.html' %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<head>
 <head>    
 <title>add picture</title>
 {{ form.media }}
 
 {%load static%}  
-  <link href="{% static 'css/addanimals.css' %}" rel="stylesheet">
+<link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
 </head>
 <body>
     
@@ -15,4 +24,4 @@
   <input type="submit" value="Update">
 </form>
 </body>
-</html>
+{%endblock%}
