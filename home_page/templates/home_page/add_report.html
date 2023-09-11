@@ -16,7 +16,7 @@
 <body>
     
 <form method="post" action={%url 'home_page:add-reports'%}><!--when you want to upload fies -->
-  <h1>Add Report</h1>
+  <h2>Add Report</h2>
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Update">

@@ -15,7 +15,7 @@
     <body>
         
         <form method="POST" action={%url 'home_page:add-expenses'%}>
-            <h1>Add Expenses</h1>
+            <h2>Add Expenses</h2>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">

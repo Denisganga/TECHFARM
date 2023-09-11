@@ -16,7 +16,7 @@
     <body>
         
         <form method="POST" action={%url 'home_page:add-employees'%}>
-            <h1>Add Employee</h1>
+            <h2>Add Employee</h2>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">

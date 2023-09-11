@@ -13,7 +13,7 @@
   <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Add Crops</h1>
+    <h2>Add Crops</h2>
     <form method="POST" action="{% url 'home_page:add-crops' %}">
         {% csrf_token %}
         {{ form.as_p }}

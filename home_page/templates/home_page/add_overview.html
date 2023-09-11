@@ -16,7 +16,7 @@
     <body>
         
         <form method="POST" action={%url 'home_page:add-overview'%}>
-            <h1>Add Asset</h1>
+            <h2>Add Asset</h2>
             {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="add">

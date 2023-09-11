@@ -1,10 +1,12 @@
+{%extends 'home_page/base.html'%}
+{%block content%}
 <head>
     <title>update Employee</title>
       {%load static%}  
       <link href="{% static 'css/update_machinery.css' %}" rel="stylesheet">
     </head>
     <body>
-      <h1>Update Employee</h1>
+      <h2>Update Employee</h2>
       <form method="post">
         {% csrf_token %}
     
@@ -28,3 +30,4 @@
         <input type="submit" value="Update">
       </form>
     </body>
+    {% endblock %}
