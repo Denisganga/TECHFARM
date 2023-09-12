@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Agritech Manager is a powerful farm management system designed to streamline and optimize agricultural operations. It provides a centralized platform to efficiently manage crops, animals, machinery, and farm employers, enabling farmers and agribusinesses to make informed decisions and improve productivity.
 
 ## Features
@@ -19,3 +20,7 @@ Agritech Manager is a powerful farm management system designed to streamline and
 - **Improved Traceability:** Maintain detailed records of crops, animals, and operations, ensuring traceability throughout the entire supply chain. Enhance food safety, meet regulatory requirements, and gain consumers' trust in the quality of your products.
 
 
+=======
+# TECHFARM
+TechFarm is an advanced and intuitive Farm Management System designed specifically for farmers to efficiently monitor and manage their farm production. With TechFarm, farmers can seamlessly keep track of various aspects of their farming operations, ensuring streamlined processes and enhanced productivity
+>>>>>>> 5f14133241f22c1a78a7560f83b29f86beae634a
