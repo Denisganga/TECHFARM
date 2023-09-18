@@ -80,12 +80,12 @@ footer p {
   
 }
 
-@keyframes sliding-background {
+/*@keyframes sliding-background {
   0% { background-image: url('/static/images/bb1.jpeg'); }
   33.33% { background-image: url('/static/images/bb2.jpg'); }
   66.67% { background-image: url('/static/images/bb3.jpg'); }
   100% { background-image: url('/static/images/bb1.jpeg'); }
-}
+}*/
 
 body {
   animation: sliding-background 30s linear infinite;
