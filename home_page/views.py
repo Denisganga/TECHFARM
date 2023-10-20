@@ -281,8 +281,7 @@ def add_overview(request):
 
 
 def show_overview(request):
-    overvew = Overview.objects.filter(user=request.user)
-
+    overview = Overview.objects.filter(user=request.user)
     return render(request,"home_page/show_overview.html",{'overview':Overview})
 
 

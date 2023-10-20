@@ -119,39 +119,3 @@ body {
 
 
 
-
-
-
-.container {
-  display: flex;
-  align-items: flex-start;
-}
-
-.sidebar {
-  width: 250px;
-  /* Sidebar styles */
-}
-
-.main-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 20px;
-  overflow-y: scroll;
-  max-height: calc(100vh - 40px); /* Adjust the value based on your needs */
-}
-
-.feature-rectangle {
- 
-  text-decoration: none;
-  color: black;
-  border-radius: 5px;
-  padding: 40px;
-  margin: 0 20px;
-  text-align: center;
-}
-
-.main-content > .feature-rectangle:last-child {
-  margin-bottom: 0; /* Remove margin bottom from the last feature rectangle */
-}

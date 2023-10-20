@@ -7,19 +7,35 @@
   <meta http-equiv=”X-UA-Compatible” content=”IE=edge”>
 
   <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
-  
-  <link rel="stylesheet" href="{% static 'css/side_bar.css' %}">
+   
+  <link href="{% static 'css/home.css' %}" rel="stylesheet">
 
   
   <script src="https://kit.fontawesome.com/a44d4b564a.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-<div class=dim-overlay>
+  
+  <label id="lblGreetings"></label>
   <header>
+    <h1>WELCOME TO TECH FARM</h1>
     
-    <h1>WELCOME  TO TECH FARM</h1>
-    <!-- Add any additional header elements or navigation here -->
+    <script>
+      var myDate = new Date();
+      var hrs = myDate.getHours();
+  
+      var greet;
+  
+      if (hrs < 12)
+          greet = 'Good Morning';
+      else if (hrs >= 12 && hrs <= 17)
+          greet = 'Good Afternoon';
+      else if (hrs >= 17 && hrs <= 24)
+          greet = 'Good Evening';
+  
+      document.getElementById('lblGreetings').innerHTML =
+          '<b >' + greet + '</b>,  lets monitor your farm operations';
+    </script> 
   </header>
    <i class="fas fa-bars" id="btn"></i>
    
@@ -51,13 +67,13 @@
   
   <div class="main-content">
     <div class="feature-rectangle">
-     <button> <h2> <a href="{% url 'home_page:show-employees' %}"> Employees</a></li>  </h2> <button>
+     <button> <h2> <a style="text-decoration:none" href="{% url 'home_page:show-employees' %}"> Employees</a></li>  </h2> </button>
       <!-- Add content for the Employers feature -->
     </div>
   
     <div class="feature-rectangle">
       
-      <button> <h2> <a href="{% url 'home_page:display-gallery' %}"> FARM GALLERY</a></li>  </h2></button>
+      <button> <h2> <a style="text-decoration:none"href="{% url 'home_page:display-gallery' %}"> Farm gallery</a></li>  </h2></button>
       <!-- Add content for the Farm Gallery feature -->
     </div>
   </div>
@@ -74,8 +90,8 @@
 
   <footer>
     <!-- Add any footer content or copyright information here -->
-    <p>&copy; 2023 Farm Management System created by DenisNganga dedicated to Mum and my two sisters. All rights reserved.</p>
+    <p>&copy; 2023 Farm Manager created by DenisNganga . All rights reserved.</p>
   </footer>
-</div>
+   
 </body>
 </html>

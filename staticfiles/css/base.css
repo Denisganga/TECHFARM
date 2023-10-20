@@ -1,0 +1,22 @@
+header {
+    background-color: rgb(16, 94, 40);
+    padding: 1px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: white; /* Set the text color to white for better visibility */
+    font-size: 28px; /* Adjust the font size as needed */
+    font-weight: bold; /* Add bold styling for emphasis */
+  }
+  footer {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 12px;
+    
+  }

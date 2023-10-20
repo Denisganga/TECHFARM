@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
+}
+
+h2 {
+
+  text-align: center;
+  color:black;
+}
+
+ul.animal-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.animal-list li {
+  margin-bottom: 10px;
+}
+
+.animal-container {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  padding: 50px;
+}
+
+.animal-info {
+  flex-grow: 1;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0;
+}
+
+ul.animal-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.animal-list li {
+  margin-bottom: 10px;
+}
+
+.animal-container {
+  display: flex;
+  align-items: flex-start;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+.animal-info {
+  flex-grow: 1;
+}
+
+.animal-picture img {
+  width: 300px;
+  margin-left: 0px;
+}
+.add-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+.update-link {
+  color: blue;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+.delete-link {
+  color: red;
+  text-decoration: none;
+}
