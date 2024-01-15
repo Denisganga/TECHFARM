@@ -1,6 +1,6 @@
 # TECHFARM
 =======
-TechFarm is an advanced and intuitive Farm Management System designed specifically for farmers to efficiently monitor and manage their farm production. With TechFarm, farmers can seamlessly keep track of various aspects of their farming operations, ensuring streamlined processes and enhanced productivity
+TechFarm is an advanced and intuitive Farm Management System designed specifically for farmers to efficiently monitor and manage their farm production.The project was to introduce me well and teach me the django framework.With TechFarm, farmers can seamlessly keep track of various aspects of their farming operations, ensuring streamlined processes and enhanced productivity
 Agritech Manager is a powerful farm management system designed to streamline and optimize agricultural operations. It provides a centralized platform to efficiently manage crops, animals, machinery, and farm employers, enabling farmers and agribusinesses to make informed decisions and improve productivity.
 
 ## Features
