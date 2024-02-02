@@ -1,2 +1,2 @@
 # TECHFARM
-repository made to lear django and improove my skills
+repository made to learn django and improove my web development skills
